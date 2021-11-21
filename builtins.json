@@ -3,7 +3,7 @@
     "author" : "UCYT5040",
     "functions" : {
         "quack" : {
-            "using" : "python",
+            "using" : "python_exec",
             "arguments" : ["obj_to_print"],
             "run" : "print(str(!obj_to_print!))"
         }
