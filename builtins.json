@@ -1,0 +1,11 @@
+{
+    "name" : "Builtins",
+    "author" : "UCYT5040",
+    "functions" : {
+        "quack" : {
+            "using" : "python",
+            "arguments" : ["obj_to_print"],
+            "run" : "print(str(!obj_to_print!))"
+        }
+    }
+}
