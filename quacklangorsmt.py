@@ -18,9 +18,26 @@ def split_into_list(code, sep=";"): return [
 
 # This needs its own way of evaluating, and poses a security risk.
 def value_of(code):
-    #return eval(code)
-    return code # For some reason it seems to be already evaluated, investigating.
-
+    err("Quacklang only supports numbers and strings for now.", True)
+    if (code.startswith('"') and code.endswith('"')) or (code.startswith("'") and code.endswith("'")):
+        return code # Dangerous, this should be scanned.
+        # Requires testing:
+        # Regex ["'].*["'].*["'].*["']
+        # This should check if the string contains harmful code, but may have workarounds.
+        # Should be checked over.
+    if (
+        '+' not in code
+        and '-' not in code
+        and '*' not in code
+        and '/' not in code
+    ): # We know that there is no chance of an operator here. This could be a variable or a number.
+        is_number = all(
+            char in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            for char in code
+        )
+        if is_number: return code # It is a number and there is no need to evaluate it further.
+        # It is a variable or function if it has gotten to this point and definetly has no operators.
+        
 
 def run_func(function, line, line_num, function_name):
     if function["using"] == "python_exec":
