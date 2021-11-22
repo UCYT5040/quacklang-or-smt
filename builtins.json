@@ -1,6 +1,6 @@
 {
     "name" : "Builtins",
-    "author" : "UCYT5040",
+    "author" : "Kerky",
     "functions" : {
         "quack" : {
             "using" : "python_exec",
